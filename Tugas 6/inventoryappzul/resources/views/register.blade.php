@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Buat Account Baru!</h1>
+@extends('layouts.master')
+@section('title')
+    Halaman Pendaftaran
+@endsection
+@section('content')
+    
+<h1>Buat Account Baru!</h1>
     <form action="/daftar" method="POST">
         @csrf
         <h3>Sign Up Form</h3>
@@ -35,7 +33,5 @@
         <textarea name="bio" id="" rows="10" cols="50"></textarea>
         <br>
         <input type="submit" value="SignUp" name="SignUp"><br>
-        <a href="/">Kembali di sini</a>
     </form>
-</body>
-</html>
+@endsection
