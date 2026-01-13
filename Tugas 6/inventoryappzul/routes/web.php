@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', [DashboardController::class, 'home'])->name('home');
 
@@ -26,3 +27,7 @@ Route::put('/category/{id}', [CategoryController::class, 'update']);
 
 // -> Delete Categories
 Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
+
+// CRUD Product
+
+Route::resource('/product', ProductController::class);

@@ -32,12 +32,27 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="register" aria-expanded="false">
                 <span>
-                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                  <iconify-icon icon="solar:add-square-broken" class="fs-6"></iconify-icon>
                 </span>
                 <span class="hide-menu">Register</span>
               </a>
             </li>
-            
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/category" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:checklist-linear" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Category</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/product" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:box-minimalistic-broken" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Product</span>
+              </a>
+            </li>
           </ul>
           
         </nav>

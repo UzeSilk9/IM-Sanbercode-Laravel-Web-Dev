@@ -37,7 +37,7 @@ class CategoryController extends Controller
 
         // rederict
 
-        return redirect('/category')->with('success', 'Category Updated');
+        return redirect('/category')->with('success', 'Category has Added');
     }
 
     public function index(){
@@ -51,7 +51,8 @@ class CategoryController extends Controller
         return view('category.detail', ['category' => $category]);
 
     }
-
+    
+        //   update
     public function edit($id){
         $category = DB::table('categories')->find($id);
 
@@ -59,6 +60,7 @@ class CategoryController extends Controller
         return view('category.edit', ['category' => $category]);
     }
 
+     
     public function update($id, Request $request){
         // validations
         $request->validate([
@@ -71,7 +73,7 @@ class CategoryController extends Controller
         ]);
           $now  = Carbon::now();
 
-        //   update
+       
 
         DB::table('categories')
     ->where('id', $id)
