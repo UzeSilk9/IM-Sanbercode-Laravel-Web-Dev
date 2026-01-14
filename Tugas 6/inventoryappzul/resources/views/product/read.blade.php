@@ -10,7 +10,9 @@
     {{ session()->get('success') }}
     </div>    
 @endif
+ @if (Auth::check() &&  Auth::user()->role === 'admin')
 <a href="/product/create" class="btn btn-primary btn-sm my-3 ">Tambah</a>
+@endif
 <div class="row">
 @forelse ($product as $item)
         <div class="col-4"> <!-- ① buka -->
@@ -24,7 +26,7 @@
             <div class="d-grid mb-2"> <!-- ④ buka -->
                 <a href="/product/{{ $item->id }}" class="btn btn-primary">Click Here!</a>
             </div> <!-- ④ tutup -->
-
+             @if (Auth::check() &&  Auth::user()->role === 'admin')
             <div class="row my-3"> <!-- ⑤ buka -->
                 <div class="col"> <!-- ⑥ buka -->
                     <div class="d-grid mb-2"> <!-- ⑦ buka -->
@@ -42,6 +44,7 @@
                     </div> <!-- ⑨ tutup -->
                 </div> <!-- ⑧ tutup -->
             </div> <!-- ⑤ tutup -->
+            @endif
         </div> <!-- ③ tutup -->
     </div> <!-- ② tutup -->
 </div> <!-- ① tutup -->

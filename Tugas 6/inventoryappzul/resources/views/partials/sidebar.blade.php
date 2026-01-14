@@ -29,14 +29,7 @@
               <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
               <span class="hide-menu">MASTER</span>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="register" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:add-square-broken" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Register</span>
-              </a>
-            </li>
+                @if (Auth::check() &&  Auth::user()->role === 'admin')
             <li class="sidebar-item">
               <a class="sidebar-link" href="/category" aria-expanded="false">
                 <span>
@@ -45,12 +38,21 @@
                 <span class="hide-menu">Category</span>
               </a>
             </li>
+            @endif
             <li class="sidebar-item">
               <a class="sidebar-link" href="/product" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:box-minimalistic-broken" class="fs-6"></iconify-icon>
                 </span>
                 <span class="hide-menu">Product</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/transaction" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:add-square-broken" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Transactions</span>
               </a>
             </li>
           </ul>

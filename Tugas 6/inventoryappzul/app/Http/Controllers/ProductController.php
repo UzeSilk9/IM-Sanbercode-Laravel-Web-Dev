@@ -6,8 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use File;
-class ProductController extends Controller
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+
+class ProductController extends Controller implements Hasmiddleware
 {
+public static function middleware(): array{
+    return [
+        'auth',
+        new Middleware('admin', except:['index', 'show']),
+    ];
+}
     /**
      * Display a listing of the resource.
      */
