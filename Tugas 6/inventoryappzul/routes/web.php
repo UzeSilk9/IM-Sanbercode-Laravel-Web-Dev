@@ -2,16 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FormController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 
 Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('auth');
 
-Route::get('/register', [FormController::class,  'inputan'])->name('register');
-
-Route::post('/daftar', [FormController::class, 'daftar']);
+Route::get('/profile', [ProfileController::class, 'getProfile'])->middleware('auth');
+Route::put('/profile', [ProfileController::class, 'update'])->middleware('auth');
+Route::post('/profile', [ProfileController::class, 'store'])->middleware('auth');
 
 Route::middleware(['auth', 'admin'])->group(function(){
         
@@ -52,3 +53,15 @@ Route::middleware(['guest'])->group(function(){
 
 // Logout
 Route::post('/logout', [AuthController::class, 'logout']);
+
+Route::middleware(['auth'])->group(function(){
+    // GET LIST TRANSACTIONS
+    Route::get('/transactions', [TransactionController::class, 'index']);
+    Route::get('/transactions/create', [TransactionController::class, 'create']);
+    Route::post('/transactions', [TransactionController::class, 'store']);
+
+    //Admin
+    Route::put('/transactions/{$id}', [TransactionController::class, 'update']);
+
+
+});

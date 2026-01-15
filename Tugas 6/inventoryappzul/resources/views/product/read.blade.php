@@ -21,8 +21,8 @@
         
         <div class="card-body"> <!-- ③ buka -->
             <h5 class="card-title">{{ $item->name }}</h5>
+            <span class="badge bg-info text-shadow-amber-200">{{ $item->category->name }}</span>
             <p class="card-text">{{ Str::limit($item->description, 150, '(...)') }}</p>
-
             <div class="d-grid mb-2"> <!-- ④ buka -->
                 <a href="/product/{{ $item->id }}" class="btn btn-primary">Click Here!</a>
             </div> <!-- ④ tutup -->

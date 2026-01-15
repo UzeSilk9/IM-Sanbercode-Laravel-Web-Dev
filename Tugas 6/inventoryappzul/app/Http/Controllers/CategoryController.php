@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use carbon\Carbon;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use carbon\Carbon;
 
 class CategoryController extends Controller
 {
@@ -46,7 +47,7 @@ class CategoryController extends Controller
         return view('category.tampil', ['categories' => $categories]);
     }
     public function show($id){
-        $category = DB::table('categories')->find($id);
+        $category = Category::find($id);
 
         return view('category.detail', ['category' => $category]);
 

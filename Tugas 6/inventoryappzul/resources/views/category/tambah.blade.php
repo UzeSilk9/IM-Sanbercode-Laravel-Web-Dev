@@ -4,10 +4,8 @@
 @endsection    
 
 @section('content')
-<form action="/category" method="POST">
-    @csrf
-    {{-- //Eror Validation --}}
-    @if ($errors->any())
+{{-- //Eror Validation --}}
+@if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -16,6 +14,10 @@
         </ul>
     </div>
 @endif
+<form action="/category" method="POST">
+    @csrf
+    
+    
 {{-- inputan form --}}
   <div class="mb-3">
     <label  class="form-label">Name Category</label>
