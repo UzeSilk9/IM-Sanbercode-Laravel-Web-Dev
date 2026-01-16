@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class TransactionController extends Controller
 {
     public function index(){
-        $transactions = Transaction::get();
-
-        return 'test';
+        $user = Auth::user();
+        if($user->role === 'admin'){
+            $transactions = Transaction::get();
+        }else{
+            $transactions = Transaction::where('user_id', $user->id)->get();
+        }
+        return view('transactions.index', ['transaction' =>$transactions]);
     }
 
     public function create(){
@@ -26,8 +30,8 @@ class TransactionController extends Controller
     // validations
         $request->validate([
         'product_id' => 'required',
-        'create_at' => 'required|date',
-        'update_at' => 'required|date',
+        'created_at' => 'required|date',
+        'updated_at' => 'required|date',
         'type' => 'required|in:in,out',
         'amount' => 'required|integer|min:1',
         ]);
@@ -35,8 +39,8 @@ class TransactionController extends Controller
         $id_user = Auth::id();
         $transactions = new Transaction;
         $transactions->product_id = $request->input('product_id');
-        $transactions->product_id = $request->input('create_at');
-        $transactions->product_id = $request->input('update_at');
+        $transactions->product_id = $request->input('created_at');
+        $transactions->product_id = $request->input('updated_at');
         $transactions->product_id = $request->input('type');
         $transactions->product_id = $request->input('amount');
 
@@ -70,7 +74,14 @@ class TransactionController extends Controller
         'amount' => $amount,
         ]);
 
-        return redirect('/transactions')->with('success', 'Product has Update');
+        return redirect('/transactions')->with('success', 'Transactions has Created');
     }
+
+    public function show($id)
+    {
+       $isi = Transaction::with(['user', 'product'])->findOrFail($id);
+    return view('transactions.detail', compact('isi'));
+    }
+
     }
     

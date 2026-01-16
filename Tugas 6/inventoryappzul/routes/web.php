@@ -8,7 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 
-Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->name('incex')->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'getProfile'])->middleware('auth');
 Route::put('/profile', [ProfileController::class, 'update'])->middleware('auth');
@@ -61,7 +61,6 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/transactions', [TransactionController::class, 'store']);
 
     //Admin
-    Route::put('/transactions/{$id}', [TransactionController::class, 'update']);
-
+    Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
 
 });

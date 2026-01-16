@@ -29,12 +29,12 @@
     </select>
   </div>
     <div class="mb-3">
-        <label class="form-label">Tanggal Pembelian</label>
-        <input type="date" name="create_at" class="form-control" cols="30" rows="10"></input>
+        <label class="form-label">Tanggal Transaksi</label>
+        <input type="date" name="created_at" class="form-control" cols="30" rows="10"></input>
     </div>
     <div class="mb-3">
-        <label class="form-label">Tanggal Garansi</label>
-        <input type="date" name="update_at" class="form-control" cols="30" rows="10"></input>
+        <label class="form-label">Tanggal Update</label>
+        <input type="date" name="updated_at" class="form-control" cols="30" rows="10"></input>
     </div>
     <div class="mb-3">
         <label class="form-label">Type</label>
