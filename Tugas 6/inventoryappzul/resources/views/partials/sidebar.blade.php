@@ -3,9 +3,11 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="{{asset('template/src/index.html" class="text-nowrap logo-img') }}">
+          <a href="/profile">
             <h3 class="text-primary">{{ Auth::user()->name }}</h3>
-            <h6 class="text-dark">{{ Auth::user()->email }}</h6>
+            <div>
+              <h6 class="text-dark">{{ Auth::user()->email }}</h6>
+            </div>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
